@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3" *ngFor="let c of candidatos; let i=index">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Candidato {{i+1}}:</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Nombre: {{c.nombre}} Apellidos: {{c.apellidos}}</h6>
+                  <p class="card-text">Datos Personales: Direccion: {{c.direccion}} Correo: {{c.mail}} Telefono: {{c.telefono}} Fecha de Nacimiento: {{c.fecha}} DNI: {{c.dni}}</p>
+                  <a class="card-link" (click)="eliminarCandidato(c)" style="color:red;"><i class="bi bi-x-octagon-fill"></i> Eliminar Candidato</a>
+                  <a routerLink="/candidatos/modificar/{{c.id}}" class="card-link"><i class="bi bi-pencil-square"></i> Modificar</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+<form class="container" [formGroup]="formulario" (ngSubmit)="anadirFormulario()">
+
+    <div class="form-control">
+        <label for="fechaEntrevista">Fecha de la Entrevista:</label>
+        <input class="form-control" formControlName="fechaEntrevista" name="fechaEntrevista" type="date">
+    </div>
+    <div *ngIf="formulario.controls['fechaEntrevista'].errors" class="text-danger">
+       La fecha de la entrevista es obligatorio.
+    </div>
+
+    <div class="form-group">
+        <label for="dniCandidato">Candidato Que Hara la entrevista:</label>
+        <select formControlName="dniCandidato">      
+             <option value="" disabled selected hidden>Selecciona una opción</option>
+            <option [value]="c.dni" *ngFor="let c of candidatos">{{c.nombre}} {{c.apellidos}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="puesto">Puesto a optar:</label>
+        <select formControlName="puesto">      
+             <option value="" disabled selected hidden>Selecciona una opción</option>
+            <option [value]="p.id" *ngFor="let p of puestos">{{p.nombre}} en {{p.empresa}}</option>
+        </select>
+    </div>
+
+    <div class="form-control">
+        <label for="realizada">Se ha entrevistado:</label>
+        <input  formControlName="realizada" name="realizada" type="checkbox">
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Guardar Entrevista</button>
+
+</form>
+<button class="btn btn-danger" routerLink="/entrevistas/listar" >Cancelar</button>

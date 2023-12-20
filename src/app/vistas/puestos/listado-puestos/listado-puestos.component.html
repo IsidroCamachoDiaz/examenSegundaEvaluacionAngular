@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3" *ngFor="let p of puestos; let i=index">
+            <div class="card" style="width: 18rem;"  *ngIf="p.disponible">
+                <div class="card-body">
+                  <h5 class="card-title">Puesto {{i+1}}:</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Puesto: {{p.nombre}}</h6>
+                  <p class="card-text">Empresa: {{p.empresa}}</p>
+                  <a class="card-link" (click)="eliminarPuesto(p)" style="color:red;"><i class="bi bi-x-octagon-fill"></i> Eliminar Puesto</a>
+                  <a routerLink="/puestos/modificar/{{p.id}}" class="card-link"><i class="bi bi-pencil-square"></i> Modificar</a>
+                </div>
+              </div>
+              <div class="card" style="width: 18rem;" *ngIf="!p.disponible">
+                <div class="card-body bg-danger">
+                  <h5 class="card-title">Puesto {{i+1}}: (El puesto no esta Disponible)</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Puesto: {{p.nombre}}</h6>
+                  <p class="card-text">Empresa: {{p.empresa}}</p>
+                  <a class="card-link" (click)="eliminarPuesto(p)" style="color:red;"><i class="bi bi-x-octagon-fill"></i> Eliminar Puesto</a>
+                  <a routerLink="/puestos/modificar/{{p.id}}" class="card-link"><i class="bi bi-pencil-square"></i> Modificar</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

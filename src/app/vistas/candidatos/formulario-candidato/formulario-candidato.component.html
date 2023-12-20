@@ -1,0 +1,61 @@
+<form class="container" [formGroup]="formulario" (ngSubmit)="anadirFormulario()">
+
+    <div class="form-control">
+        <label for="nombre">Nombre:</label>
+        <input class="form-control" formControlName="nombre" name="nombre">
+    </div>
+    <div *ngIf="formulario.controls['nombre'].errors" class="text-danger">
+       El nombre es requerido.
+    </div>
+    <div class="form-control">
+        <label for="apellidos">Apellidos:</label>
+        <input class="form-control" formControlName="apellidos" name="apellidos">
+    </div>
+    <div *ngIf="formulario.controls['apellidos'].errors" class="text-danger">
+      Los apellidos son necesarios.
+    </div>
+
+    <div class="form-control">
+        <label for="dni">DNI:</label>
+        <input class="form-control" formControlName="dni" name="dni">
+    </div>
+    <div *ngIf="formulario.controls['dni'].errors" class="text-danger">
+       El DNI es obligatorio.
+    </div>
+
+    <div class="form-control">
+        <label for="telefono">Telefono:</label>
+        <input class="form-control" formControlName="telefono" name="telefono" type="number">
+    </div>
+    <div *ngIf="formulario.controls['telefono'].errors" class="text-danger">
+       El telefono es obligatorio.
+    </div>
+
+    <div class="form-control">
+        <label for="direccion">Direccion:</label>
+        <input class="form-control" formControlName="direccion" name="direccion">
+    </div>
+    <div *ngIf="formulario.controls['direccion'].errors" class="text-danger">
+       La direccion es obligatorio.
+    </div>
+
+    <div class="form-control">
+        <label for="email">Email:</label>
+        <input class="form-control" formControlName="email" name="email">
+    </div>
+    <div *ngIf="formulario.controls['email'].errors" class="text-danger">
+       El email es obligatorio es obligatorio.
+    </div>
+
+    <div class="form-control">
+        <label for="fecha">Fecha de Nacimiento:</label>
+        <input class="form-control" formControlName="fecha" name="fecha" type="date">
+    </div>
+    <div *ngIf="formulario.controls['fecha'].errors" class="text-danger">
+       La fecha de nacimiento es obligatorio.
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Guardar Candidato</button>
+
+</form>
+<button class="btn btn-danger" routerLink="/candidatos/listar" >Cancelar</button>

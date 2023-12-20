@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3" *ngFor="let e of entrevistas; let i=index">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Entrevista {{i+1}}:</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Entrevista de dia: {{e.fechaEntrevista}}</h6>
+                  <p class="card-text">Se va a Entrevistar a: {{buscarCandidato(e.dniCandidato)}} Para el Puesto: {{buscarPuesto(e.idPuesto)}}</p>
+                  <a class="card-link" (click)="eliminarEntrevista(e.id!)" style="color:red;"><i class="bi bi-x-octagon-fill"></i> Eliminar Entrevista</a>
+                  <a routerLink="/entrevistas/modificar/{{e.id}}" class="card-link"><i class="bi bi-pencil-square"></i> Modificar</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-danger" (click)="cogerNoRealizados()">No realizadas</button>
+          <button class="btn btn-success" (click)="cogerRealizados()">Realizadas</button>
+        </div>
+    </div>
+</div>
+
